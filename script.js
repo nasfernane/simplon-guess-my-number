@@ -65,6 +65,8 @@ const checkUserNumber = function () {
       displayMessage('💥 You failed...');
     }
   }
+
+  document.querySelector('.guess').value = '';
 };
 
 // fonction pour relancer le jeu
@@ -89,5 +91,9 @@ const playAgain = function () {
 document.querySelector('.check').addEventListener('click', checkUserNumber);
 // écouteur sur bouton again pour relancer le jeu
 document.querySelector('.again').addEventListener('click', playAgain);
+// écouteur sur bouton Enter
+document.addEventListener('keydown', function (e) {
+  if (e.code === 'Enter' || e.code === 'NumpadEnter') checkUserNumber();
+});
 
 // ----- FIN ECOUTEURS -----
